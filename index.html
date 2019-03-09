@@ -10,25 +10,60 @@
   </head>
 
   <body>
-    <div id="container">
+    <div id="div-container">
       <header>
-
       <h1>Salary Calculator</h1>
       <h2 id="add-employee">Add Employee</h3>
-
       </header>
-      <div id="div-input">
+      <div id="div-input-1">
         <input id="in-first-name" class="input" placeholder="First Name">
         <input id="in-last-name" class="input" placeholder="Last Name">
-        <input id="in-id" class="input" placeholder="ID">
+        <input id="in-id" class="input" placeholder="ID #">
         <input id="in-title" class="input" placeholder="Title">
         <input id="in-annual-sal" class="input" placeholder="Annual Salary">
       </div>
+
+      <div id="div-table">
+        <table id="table1">
+          <thead id="table1-thead">
+            <tr id="table1-thead-tr">
+              <th class="th">First Name</th>
+              <th class="th">Last Name</th>
+              <th class="th">ID #</th>
+              <th class="th">Title</th>
+              <th class="th">Annual Salary</th>
+            </tr>
+          </thead>
+          <tbody id="table1-tbody">
+            <tr id="table1-tbody-tr">
+              <td>Chase</td>
+              <td>Linzmeyer</td>
+              <td>1234</td>
+              <td>Software Developer</td>
+              <td>$80,000</td>
+            </tr>
+          </tbody>
+          <tfoot id="table1-tfoot">
+            <tr id="table1-tfoot-tr">
+              <td id="tfoot-tr-td"> </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
     </div>
-
-
-
-
-
   </body>
+
+  <footer></footer>
 </html>
+
+
+
+
+<!-- fix me: can't seem to figure out how to append a table row to
+          the end of my table body.
+
+            <tr>
+              <td>foot3er</td>
+            </tr>
+-->
