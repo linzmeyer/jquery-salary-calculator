@@ -1,0 +1,19 @@
+/* table */
+#table1 {
+  margin: 20px;
+}
+
+.th {
+  background-color: cadetblue;
+}
+
+table, th, td, tfoot {
+  border: 1px solid black;
+}
+
+th, td {
+  background-color: white;
+  padding: 5px;
+  text-align: left;
+}
+
