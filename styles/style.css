@@ -12,8 +12,10 @@ table, th, td, tfoot {
 }
 
 th, td {
-  background-color: white;
   padding: 5px;
   text-align: left;
 }
 
+tfoot {
+  column-span: all;
+}
