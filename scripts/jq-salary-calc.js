@@ -25,11 +25,41 @@ let totalMonthly = 0;
 $( document ).ready( readyNow );
 
 
-
-
 /*******************************************************************************
-*** FUNCTION DEFINITIONS *******************************************************
+*** FUNCTION DEFINITIONS * A-Z *************************************************
 *******************************************************************************/
+
+function createEmployeeObj( inputs ) {
+  console.log( 'in createEmployeeObj' );
+
+  inputs = new Employee(
+    window.DOMstrings.first,
+    window.DOMstrings.last,
+    window.DOMstrings.idNum,
+    window.DOMstrings.ttl,
+    window.DOMstrings.annSal
+  );
+  return inputs;
+}
+
+
+
+function getUserInputs() {
+  console.log( 'in getUserInputs' );
+
+  // create an employee object literal and store user inputs in it.
+  window.DOMstrings = {
+    first: $( '#in-first-name' ).val(),
+    last: $( '#in-last-name' ).val(),
+    idNum: $( '#in-id' ).val(),
+    ttl: $( '#in-title' ).val(),
+    annSal: $( '#in-annual-sal' ).val(),
+  };
+  // return object
+  return window.DOMstrings;
+}
+
+
 
 // DOM initialization, event listeners
 // These things will happen once the DOM has loaded.
@@ -41,38 +71,74 @@ function readyNow() {
   // DOM INIT ------------------------------------------------------------------
   //----------------------------------------------------------------------------
 
-  // display TotalMonthly as $0
-
-  /* Define Object literal. Hold all DOM strings in one place for easy
-  access/mutation. This cannot be defined before the DOM is; that's why it's in
-  this method. */
-//  getUserInputs();
+  // todo: display TotalMonthly as $0
 
 
   //----------------------------------------------------------------------------
   // EVENT LISTENERS -----------------------------------------------------------
   //----------------------------------------------------------------------------
 
-  // listen for click on btn-submit, add an employee
+  // listen for click on btn-submit, run submit handler
   $( '#btn-submit').on( 'click', submit );
 
 }
 
 
-//------------------------------------------------------------------------------
-// EVENT HANDLERS --------------------------------------------------------------
-//------------------------------------------------------------------------------
+
+function removeEmployee() {
+  console.log('in removeEmployee');
+}
+
+
+
+function renderDOMData(){
+  console.log( 'in renderDOMData' );
+
+  // remove all data
+  $( '.input' ).val( '' );
+  $( '#in-first-name' ).focus();
+
+
+  // append all data
+
+}
+
+
+
+//calculate totalMonthly variable
+function setTotalMonthly( arrEmployees ) {
+  console.log( 'in setTotalMonthly' );
+
+  let result = 0;
+
+  for ( let employee of arrEmployees ) {
+    result += Number( employee.annualSalary );
+  }
+
+  // store value in yearly variable
+  let totalYear = result;
+
+  // set monthly variable
+  result /= 12;
+
+  console.log( 'total Year', totalYear );
+  console.log( 'total Monthly', result );
+
+  return result;
+}
+
+
 
 /*
- When btn-submit is clicked,
- - create an Employee object using user inputs
- - push Employee into allEmployees array
- - calculate totalMonthly variable
- - refresh DOM
-  - render the table and it's contents with the allEmployees array
-  - render the total monthly with the totalMonthly variable
+ EVENT HANDLER: When btn-submit is clicked, do the things:
+  - get user inputs into an object
+  - create an Employee object using user inputs
+  - add Employee into allEmployees array
+  - calculate totalMonthly variable
+  - refresh DOM
+    - render the table and it's contents with the allEmployees array
+    - render the total monthly with the totalMonthly variable
 */
-// create an Employee object using info currently in DOM input fields
 function submit() {
   console.log( 'in submit' );
 
@@ -97,90 +163,10 @@ function submit() {
 
 
 
-//------------------------------------------------------------------------------
-// OTHER FUNCTIONS -------------------------------------------------------------
-//------------------------------------------------------------------------------
-
 function test() {
   console.log( 'in test' );
 
   let result = 0;
-
-  return result;
-}
-
-
-
-function createEmployeeObj( inputs ) {
-
-  inputs = new Employee(
-    window.DOMstrings.first,
-    window.DOMstrings.last,
-    window.DOMstrings.idNum,
-    window.DOMstrings.ttl,
-    window.DOMstrings.annSal
-  );
-  return inputs;
-}
-
-
-
-function getUserInputs() {
-  console.log( 'in getUserInputs' );
-
-  // create an employee object literal
-  window.DOMstrings = {
-    first: $( '#in-first-name' ).val(),
-    last: $( '#in-last-name' ).val(),
-    idNum: $( '#in-id' ).val(),
-    ttl: $( '#in-title' ).val(),
-    annSal: $( '#in-annual-sal' ).val(),
-  };
-  return window.DOMstrings;
-}
-
-
-
-
-function removeEmployee() {
-  console.log('in removeEmployee');
-}
-
-
-
-function renderDOMData(){
-  console.log( 'in renderDOMData' );
-
-  // remove all data
-  $( '.input' ).val( '' );
-  $( '#in-first-name' ).focus();
-
-
-  // append all data
-
-
-}
-
-
-
-//calculate totalMonthly variable
-function setTotalMonthly( arrEmployees ) {
-  console.log( 'in setTotalMonthly' );
-
-  let result = 0;
-
-  for ( let employee of arrEmployees ) {
-    result += Number( employee.annualSalary );
-  }
-
-  // store value in yearly variable
-  let totalYear = result;
-
-  // set monthly variable
-  result /= 12;
-
-  console.log( 'total Year', totalYear );
-  console.log( 'total Monthly', result );
 
   return result;
 }

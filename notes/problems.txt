@@ -35,10 +35,12 @@ Solution: It's likely that you have a trailing comma.
 
 --------------------------------------------------------------------------------
 
+--- 3. table footer displaying wierd -------------------------------------------
+
+Problem: <tfoot><tr><td></td></tr></tfoot> element is not displaying properly.
 
 
-
-
+--------------------------------------------------------------------------------
 
 
 
