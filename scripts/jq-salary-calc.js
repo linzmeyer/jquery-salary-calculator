@@ -90,24 +90,6 @@ function test() {
 
 
 
-function getUserInputs() {
-  console.log( 'in getUserInputs' );
-
-  // create an employee object literal
-  window.DOMstrings = {
-    first: $( '#in-first-name' ).val(),
-    last: $( '#in-last-name' ).val(),
-    idNum: $( '#in-id' ).val(),
-    ttl: $( '#in-title' ).val(),
-    annSal: $( '#in-annual-sal' ).val(),
-  };
-
-  return window.DOMstrings;
-}
-
-
-
-
 // create an Employee object using info currently in DOM input fields
 function createEmployee() {
   console.log( 'in createEmployee' );
@@ -131,6 +113,24 @@ function createEmployee() {
   // return emp object
   return emp;
 }
+
+
+
+function getUserInputs() {
+  console.log( 'in getUserInputs' );
+
+  // create an employee object literal
+  window.DOMstrings = {
+    first: $( '#in-first-name' ).val(),
+    last: $( '#in-last-name' ).val(),
+    idNum: $( '#in-id' ).val(),
+    ttl: $( '#in-title' ).val(),
+    annSal: $( '#in-annual-sal' ).val(),
+  };
+
+  return window.DOMstrings;
+}
+
 
 
 
@@ -160,5 +160,7 @@ function getTotalMonthly( arrEmplyees ) {
 
 
 
+function renderTableData(){
 
+}
 
