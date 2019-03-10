@@ -1,6 +1,22 @@
+
+#btn-submit {
+  border-radius: 5px;
+  margin: 10px;
+  padding: 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.input {
+  margin: 5px;
+}
+
 /* table */
 #table1 {
-  margin: 20px;
+  margin: 10px 20px 10px 0;
 }
 
 .th {
