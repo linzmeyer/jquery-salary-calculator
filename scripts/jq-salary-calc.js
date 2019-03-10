@@ -201,4 +201,7 @@ function costWarning() {
   if ( totalMonthly > 20000 ) {
     $( '#div-total-monthly' ).addClass( 'warning' );
   }
+  else {
+    $( '#div-total-monthly' ).removeClass( 'warning' );
+  }
 }
