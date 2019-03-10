@@ -120,6 +120,9 @@ function renderDOMData(){
 
   // display totalMonthly value in DOM
   $( '#div-total-monthly' ).append( `<h3>Total Monthly $${ totalMonthly }</h3>` );
+
+  // add warning class to div-total-monthly if hit warning mark
+  costWarning();
 }
 
 
@@ -190,4 +193,12 @@ function test() {
   let result = 0;
 
   return result;
+}
+
+
+
+function costWarning() {
+  if ( totalMonthly > 20000 ) {
+    $( '#div-total-monthly' ).addClass( 'warning' );
+  }
 }

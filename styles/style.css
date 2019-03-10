@@ -46,3 +46,7 @@ tfoot {
   column-span: all;
 }
 */
+
+.warning {
+  background-color: red;
+}
