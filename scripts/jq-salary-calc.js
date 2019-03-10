@@ -86,7 +86,7 @@ function submit() {
   allEmployees.push( emp );
 
   // calculate totalMonthly variable
-  setTotalMonthly();
+  setTotalMonthly( allEmployees );
 
   // refresh DOM
   renderDOMData();
@@ -121,30 +121,6 @@ function createEmployeeObj( inputs ) {
     window.DOMstrings.annSal
   );
   return inputs;
-}
-
-
-
-//calculate totalMonthly variable
-function setTotalMonthly( arrEmployees ) {
-  console.log( 'in setTotalMonthly' );
-
-  let result = 0;
-
-  for ( let employee of arrEmployees ) {
-    result += employee.annualSalary;
-  }
-
-  // store value in yearly variable
-  let totalYear = result;
-
-  // set monthly variable
-  result /= 12;
-
-  console.log( 'total Year', totalYear );
-  console.log( 'total Monthly', totalMonthly );
-
-  return result;
 }
 
 
@@ -185,3 +161,26 @@ function renderDOMData(){
 
 }
 
+
+
+//calculate totalMonthly variable
+function setTotalMonthly( arrEmployees ) {
+  console.log( 'in setTotalMonthly' );
+
+  let result = 0;
+
+  for ( let employee of arrEmployees ) {
+    result += Number( employee.annualSalary );
+  }
+
+  // store value in yearly variable
+  let totalYear = result;
+
+  // set monthly variable
+  result /= 12;
+
+  console.log( 'total Year', totalYear );
+  console.log( 'total Monthly', result );
+
+  return result;
+}
