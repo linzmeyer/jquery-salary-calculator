@@ -1,0 +1,75 @@
+THIS IS A LIST OF PROBLEMS AND SOLUTIONS THAT I RAN INTO WHILE CREATING THIS PROJECT. THIS MAY COME IN HANDY LATER IF I RUN INTO THE SAME ISSUES IN THE FUTURE.
+
+--- 1. undefined values in global object literal -------------------------------
+
+Problem: I created my DOMstrings object globally before the APP START section.
+
+I used jQuery library and used the $( document ).ready( function ) method.  
+I attempted to create an object literal that would populate using DOM id's.
+The DOM id's had no values because this object literal was defined before the
+DOM was with the jQuery .ready() method.
+
+problem reference: img1 and img2
+
+Solution: Either A. or B. or C
+
+JUST DON'T TRY TO INITIALIZE SOMETHING BEFORE IT EXISTS!
+
+A. Place object (as well as anything else using DOM values to initialize 
+your program values) inside of the $( document ).ready( function ) method. If
+you need your values to be global, simply use the window object to do so.
+
+B. Place object (or DOM values) after jQuer.ready() method.
+
+C. I chose this. Create a function that creates the object literal. Called it
+getUserInputs
+
+solution reference: img3
+
+--------------------------------------------------------------------------------
+
+--- 2. Unexpected ')'. (E024)	); -----------------------------------------------
+
+Problem: I keep running into this error when messing with object properties.
+Solution: It's likely that you have a trailing comma.
+
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
