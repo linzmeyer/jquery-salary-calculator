@@ -65,8 +65,6 @@ function getUserInputs() {
 // These things will happen once the DOM has loaded.
 function readyNow() {
   console.log( 'in readyNow' );
-
-
   //----------------------------------------------------------------------------
   // DOM INIT ------------------------------------------------------------------
   //----------------------------------------------------------------------------
@@ -94,13 +92,28 @@ function removeEmployee() {
 function renderDOMData(){
   console.log( 'in renderDOMData' );
 
-  // remove all data
+  // clear input fields
   $( '.input' ).val( '' );
+  // set focus on First Name input field
   $( '#in-first-name' ).focus();
 
+  // remove table data elements
+  $( '#table1-tbody' ).empty();
 
-  // append all data
+  // loop through allEmployees arr
+  for ( let employee of allEmployees ) {
 
+    // append table data of each employee into table rows.
+    $( '#table1-tbody' ).append(
+
+    `<tr id="table1-tbody-tr">
+      <td>${ employee.firstName }</td>
+      <td>${ employee.lastName }</td>
+      <td>${ employee.id }</td>
+      <td>${ employee.title }</td>
+      <td>$ ${ employee.annualSalary }</td>
+    </tr>` );
+  }
 }
 
 
