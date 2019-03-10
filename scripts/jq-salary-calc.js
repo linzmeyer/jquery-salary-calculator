@@ -116,6 +116,28 @@ function createEmployee() {
 
 
 
+//calculate totalMonthly variable
+function getTotalMonthly( arrEmplyees ) {
+  console.log( 'in getTotalMonthly' );
+
+  let total = 0;
+
+  for ( let employee of arrEmplyees ) {
+    total += employee.annualSalary;
+  }
+
+  let totalYear = total;
+
+  total /= 12;
+
+  console.log( 'total Year', totalYear );
+  console.log( 'total Monthly', totalMonthly );
+
+  return total;
+}
+
+
+
 function getUserInputs() {
   console.log( 'in getUserInputs' );
 
@@ -138,25 +160,7 @@ function removeEmployee() {
   console.log('in removeEmployee');
 }
 
-//calculate totalMonthly variable
-function getTotalMonthly( arrEmplyees ) {
-  console.log( 'in getTotalMonthly' );
 
-  let total = 0;
-
-  for ( let employee of arrEmplyees ) {
-    total += employee.annualSalary;
-  }
-
-  let totalYear = total;
-
-  total /= 12;
-
-  console.log( 'total Year', totalYear );
-  console.log( 'total Monthly', totalMonthly );
-
-  return total;
-}
 
 
 
