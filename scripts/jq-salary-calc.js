@@ -70,8 +70,9 @@ function readyNow() {
   //----------------------------------------------------------------------------
 
   // todo: display TotalMonthly as $0
+    // display totalMonthly value in DOM
 
-
+  $( '#div-total-monthly' ).append( `<h3>Total Monthly $${ totalMonthly }</h3>` );
   //----------------------------------------------------------------------------
   // EVENT LISTENERS -----------------------------------------------------------
   //----------------------------------------------------------------------------
@@ -97,8 +98,9 @@ function renderDOMData(){
   // set focus on First Name input field
   $( '#in-first-name' ).focus();
 
-  // remove table data elements
+  // remove table data elements and Total Monthly tracker.
   $( '#table1-tbody' ).empty();
+  $( '#div-total-monthly' ).empty();
 
   // loop through allEmployees arr
   for ( let employee of allEmployees ) {
@@ -106,14 +108,18 @@ function renderDOMData(){
     // append table data of each employee into table rows.
     $( '#table1-tbody' ).append(
 
-    `<tr id="table1-tbody-tr">
-      <td>${ employee.firstName }</td>
-      <td>${ employee.lastName }</td>
-      <td>${ employee.id }</td>
-      <td>${ employee.title }</td>
-      <td>$ ${ employee.annualSalary }</td>
-    </tr>` );
+      `<tr id="table1-tbody-tr-${ allEmployees.indexOf( employee ) }">
+        <td>${ employee.firstName }</td>
+        <td>${ employee.lastName }</td>
+        <td>${ employee.id }</td>
+        <td>${ employee.title }</td>
+        <td>$ ${ employee.annualSalary }</td>
+      </tr>`
+    );
   }
+
+  // display totalMonthly value in DOM
+  $( '#div-total-monthly' ).append( `<h3>Total Monthly $${ totalMonthly }</h3>` );
 }
 
 
@@ -165,7 +171,9 @@ function submit() {
   allEmployees.push( emp );
 
   // calculate totalMonthly variable
-  setTotalMonthly( allEmployees );
+  totalMonthly = setTotalMonthly( allEmployees ).toFixed( 2 );
+
+
 
   // refresh DOM
   renderDOMData();
