@@ -54,7 +54,7 @@ function readyNow() {
   //----------------------------------------------------------------------------
 
   // listen for click on btn-submit, add an employee
-  $( '#btn-submit').on( 'click', createEmployee );
+  $( '#btn-submit').on( 'click', submit );
 
 }
 
@@ -65,14 +65,35 @@ function readyNow() {
 
 /*
  When btn-submit is clicked,
- - create an Employee object
+ - create an Employee object using user inputs
  - push Employee into allEmployees array
  - calculate totalMonthly variable
  - refresh DOM
   - render the table and it's contents with the allEmployees array
   - render the total monthly with the totalMonthly variable
 */
+// create an Employee object using info currently in DOM input fields
+function submit() {
+  console.log( 'in submit' );
 
+  // get user inputs into an object
+  let userInputs = getUserInputs();
+
+  // create an employee object using user inputs
+  let emp = createEmployeeObj( userInputs );
+
+  // add the Employee object to allEmployees array.
+  allEmployees.push( emp );
+
+  // calculate totalMonthly variable
+  setTotalMonthly();
+
+  // refresh DOM
+  renderDOMData();
+
+  // return emp object
+  return emp;
+}
 
 
 
@@ -90,50 +111,40 @@ function test() {
 
 
 
-// create an Employee object using info currently in DOM input fields
-function createEmployee() {
-  console.log( 'in createEmployee' );
+function createEmployeeObj( inputs ) {
 
-  // get user inputs into an object
-  getUserInputs();
-
-  let emp = new Employee(
+  inputs = new Employee(
     window.DOMstrings.first,
     window.DOMstrings.last,
     window.DOMstrings.idNum,
     window.DOMstrings.ttl,
     window.DOMstrings.annSal
   );
-
-  console.log( emp );
-
-// add an Employee object to allEmployees array.
-  allEmployees.push( emp );
-
-  // return emp object
-  return emp;
+  return inputs;
 }
 
 
 
 //calculate totalMonthly variable
-function getTotalMonthly( arrEmplyees ) {
-  console.log( 'in getTotalMonthly' );
+function setTotalMonthly( arrEmployees ) {
+  console.log( 'in setTotalMonthly' );
 
-  let total = 0;
+  let result = 0;
 
-  for ( let employee of arrEmplyees ) {
-    total += employee.annualSalary;
+  for ( let employee of arrEmployees ) {
+    result += employee.annualSalary;
   }
 
-  let totalYear = total;
+  // store value in yearly variable
+  let totalYear = result;
 
-  total /= 12;
+  // set monthly variable
+  result /= 12;
 
   console.log( 'total Year', totalYear );
   console.log( 'total Monthly', totalMonthly );
 
-  return total;
+  return result;
 }
 
 
@@ -149,7 +160,6 @@ function getUserInputs() {
     ttl: $( '#in-title' ).val(),
     annSal: $( '#in-annual-sal' ).val(),
   };
-
   return window.DOMstrings;
 }
 
@@ -162,9 +172,16 @@ function removeEmployee() {
 
 
 
+function renderDOMData(){
+  console.log( 'in renderDOMData' );
+
+  // remove all data
+  $( '.input' ).val( '' );
+  $( '#in-first-name' ).focus();
 
 
-function renderTableData(){
+  // append all data
+
 
 }
 
