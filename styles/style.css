@@ -1,3 +1,6 @@
+/************/
+/*** id's ***/
+/************/
 
 #btn-submit {
   border-radius: 5px;
@@ -5,34 +8,67 @@
   padding: 5px;
 }
 
-#tfoot-tr-td {
-  column-span: "5";
+#div-btn1 {
+  text-align: right;
+}
+
+#div-container {
+  display: inline-block;
+}
+
+#div-table {
+  text-align: center;
+}
+
+#h3-employees {
+  margin-right: auto;
+}
+
+#main-header {
+  background-color: grey;
+  color: white;
+  text-align: center;
+  line-height: 185px;
+}
+
+#table1 {
+  border-spacing: 0;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 #table1-tfoot-tr {
   column-span: "6";
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+#tfoot-tr-td {
+  column-span: "5";
 }
 
+/***********/
+/* Classes */
+/***********/
 .input {
   margin: 5px;
 }
 
-/* table */
-#table1 {
-  margin: 10px 20px 10px 0;
-  border-spacing: 0;
-}
-
 .th {
-  background-color: cadetblue;
+  background-color: darkgrey;
 }
 
-table, th, td, tfoot {
+.warning {
+  background-color: red;
+}
+
+/************/
+/*** Tags ***/
+/************/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+table, td, th, tr {
   border: 1px solid black;
 }
 
@@ -41,12 +77,4 @@ th, td {
   text-align: left;
 }
 
-/*
-tfoot {
-  column-span: all;
-}
-*/
 
-.warning {
-  background-color: red;
-}
