@@ -34,7 +34,7 @@ function costWarning() {
     $( '#div-total-monthly' ).addClass( 'warning' );
   }
   else {
-    $( '#div-total-monthly' ).removeClass( 'warning' );
+$( '#div-total-monthly' ).removeClass( 'warning' );
   }
 }
 
@@ -137,8 +137,10 @@ function setTotalMonthly( arrEmployees ) {
     - render the table and it's contents with the allEmployees array
     - render the total monthly with the totalMonthly variable
 */
-function submit() {
+function submit( e ) {
   console.log( 'in submit' );
+  // disable refresh functionality
+  e.preventDefault();
   // get user inputs into an object
   let userInputs = getUserInputs();
   // create an employee object using user inputs

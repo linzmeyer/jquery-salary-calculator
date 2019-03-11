@@ -41,8 +41,9 @@
   column-span: "6";
 }
 
-#tfoot-tr-td {
-  column-span: "5";
+#tfoot {
+  padding: 10px;
+  margin: 10px;
 }
 
 /***********/

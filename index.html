@@ -15,22 +15,23 @@
         <h1 id="main-header">Salary Calculator</h1>
         <h3>Add Employee</h3>
       </header>
-      <div id="div-input1">
-        <input id="in-first-name" class="input" type="text" placeholder="First Name">
-        <input id="in-last-name" class="input" type="text" placeholder="Last Name">
-        <input id="in-id" class="input" type="number" placeholder="ID #">
-        <input id="in-title" class="input" type="text" placeholder="Title">
-        <input id="in-annual-sal" class="input" type="number" placeholder="Annual Salary">
-      </div>
 
-      <div id="div-btn1">
-        <button id="btn-submit" class="btn">Submit</button>
-      </div>
+      <form>
+        <div id="div-input1">
+          <input id="in-first-name" class="input" type="text" placeholder="First Name">
+          <input id="in-last-name" class="input" type="text" placeholder="Last Name">
+          <input id="in-id" class="input" type="number" placeholder="ID #">
+          <input id="in-title" class="input" type="text" placeholder="Title">
+          <input id="in-annual-sal" class="input" type="number" placeholder="Annual Salary">
+        </div>
 
-      <h3 id="h3-employees">Employees</h3>
+        <div id="div-btn1">
+          <button id="btn-submit" class="btn">Submit</button>
+        </div>
 
-      <div id="div-table">
-        <form>
+        <h3 id="h3-employees">Employees</h3>
+
+        <div id="div-table">
           <table id="table1">
             <thead id="table1-thead">
               <tr id="table1-thead-tr">
@@ -43,10 +44,16 @@
             </thead>
             <tbody id="table1-tbody">
             </tbody>
+            <tfoot>
+              <tr>
+                <td id="tfoot" colspan="5"></td>
+              </tr>
+            </tfoot>
           </table>
-        </form>
-      </div>
-      <div id="div-total-monthly"></div>
+        </div>
+
+        <div id="div-total-monthly"></div>
+      </form>
     </div>
   </body>
 </html>
