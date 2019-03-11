@@ -1,4 +1,6 @@
-// Globals
+/*******************************************************************************
+*** Globals ********************************************************************
+*******************************************************************************/
 
 // class to create all Employee instances
 class Employee {
@@ -17,6 +19,7 @@ let allEmployees = [];
 // Variable to hold totalMonthly salaries for all Employees
 let totalMonthly = 0;
 
+
 /*******************************************************************************
 *** Application Start **********************************************************
 *******************************************************************************/
@@ -28,6 +31,17 @@ $( document ).ready( readyNow );
 /*******************************************************************************
 *** FUNCTION DEFINITIONS * A-Z *************************************************
 *******************************************************************************/
+
+function costWarning() {
+  if ( totalMonthly > 20000 ) {
+    $( '#div-total-monthly' ).addClass( 'warning' );
+  }
+  else {
+    $( '#div-total-monthly' ).removeClass( 'warning' );
+  }
+}
+
+
 
 function createEmployeeObj( inputs ) {
   console.log( 'in createEmployeeObj' );
@@ -64,15 +78,15 @@ function getUserInputs() {
 // DOM initialization, event listeners
 // These things will happen once the DOM has loaded.
 function readyNow() {
+
   console.log( 'in readyNow' );
   //----------------------------------------------------------------------------
   // DOM INIT ------------------------------------------------------------------
   //----------------------------------------------------------------------------
 
-  // todo: display TotalMonthly as $0
-    // display totalMonthly value in DOM
-
+  // display totalMonthly value in DOM
   $( '#div-total-monthly' ).append( `<h3>Total Monthly $${ totalMonthly }</h3>` );
+
   //----------------------------------------------------------------------------
   // EVENT LISTENERS -----------------------------------------------------------
   //----------------------------------------------------------------------------
@@ -193,15 +207,4 @@ function test() {
   let result = 0;
 
   return result;
-}
-
-
-
-function costWarning() {
-  if ( totalMonthly > 20000 ) {
-    $( '#div-total-monthly' ).addClass( 'warning' );
-  }
-  else {
-    $( '#div-total-monthly' ).removeClass( 'warning' );
-  }
 }
