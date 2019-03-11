@@ -63,10 +63,12 @@
 /************/
 /*** Tags ***/
 /************/
+/*
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
+*/
 
 table, td, th, tr {
   border: 1px solid black;

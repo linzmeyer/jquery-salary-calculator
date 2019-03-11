@@ -88,9 +88,8 @@ function renderDOMData(){
   $( '#div-total-monthly' ).empty();
   // loop through allEmployees arr
   for ( let employee of allEmployees ) {
-
+    // store current index in idNum
     let idNum = allEmployees.indexOf( employee );
-
     // append table data of each employee into table rows.
     $( '#table1-tbody' ).append(
       `<tr id="table1-tbody-tr-${ idNum }">
@@ -98,10 +97,9 @@ function renderDOMData(){
         <td class="">${ employee.lastName }</td>
         <td class="">${ employee.id }</td>
         <td class="">${ employee.title }</td>
-        <td class="">$ ${ employee.annualSalary }</td>
+        <td class="">$${ employee.annualSalary }</td>
       </tr>`
     );
-
     // if the index is odd
     if ( idNum % 2 !== 0 ) {
       // set backgroud color to light grey
