@@ -12,13 +12,10 @@ class Employee {
     this.annualSalary = annualSalary;
   }
 }
-
 // array to hold all employee objects
 let allEmployees = [];
-
 // Variable to hold totalMonthly salaries for all Employees
 let totalMonthly = 0;
-
 
 /*******************************************************************************
 *** Application Start **********************************************************
@@ -27,12 +24,12 @@ let totalMonthly = 0;
 // initialize the page
 $( document ).ready( readyNow );
 
-
 /*******************************************************************************
 *** FUNCTION DEFINITIONS * A-Z *************************************************
 *******************************************************************************/
 
 function costWarning() {
+  console.log( 'in costWarning' );
   if ( totalMonthly > 20000 ) {
     $( '#div-total-monthly' ).addClass( 'warning' );
   }
@@ -41,11 +38,8 @@ function costWarning() {
   }
 }
 
-
-
 function createEmployeeObj( inputs ) {
   console.log( 'in createEmployeeObj' );
-
   inputs = new Employee(
     window.DOMstrings.first,
     window.DOMstrings.last,
@@ -56,11 +50,8 @@ function createEmployeeObj( inputs ) {
   return inputs;
 }
 
-
-
 function getUserInputs() {
   console.log( 'in getUserInputs' );
-
   // create an employee object literal and store user inputs in it.
   window.DOMstrings = {
     first: $( '#in-first-name' ).val(),
@@ -69,59 +60,36 @@ function getUserInputs() {
     ttl: $( '#in-title' ).val(),
     annSal: $( '#in-annual-sal' ).val(),
   };
-  // return object
   return window.DOMstrings;
 }
-
-
 
 // DOM initialization, event listeners
 // These things will happen once the DOM has loaded.
 function readyNow() {
-
   console.log( 'in readyNow' );
-  //----------------------------------------------------------------------------
-  // DOM INIT ------------------------------------------------------------------
-  //----------------------------------------------------------------------------
-
   // display totalMonthly value in DOM
   $( '#div-total-monthly' ).append( `<h3>Total Monthly $${ totalMonthly }</h3>` );
-
-  //----------------------------------------------------------------------------
-  // EVENT LISTENERS -----------------------------------------------------------
-  //----------------------------------------------------------------------------
-
-  // listen for click on btn-submit, run submit handler
+  // listen for click event on btn-submit, run submit handler
   $( '#btn-submit').on( 'click', submit );
-
 }
-
-
 
 function removeEmployee() {
   console.log('in removeEmployee');
 }
 
-
-
 function renderDOMData(){
   console.log( 'in renderDOMData' );
-
   // clear input fields
   $( '.input' ).val( '' );
   // set focus on First Name input field
   $( '#in-first-name' ).focus();
-
   // remove table data elements and Total Monthly tracker.
   $( '#table1-tbody' ).empty();
   $( '#div-total-monthly' ).empty();
-
   // loop through allEmployees arr
   for ( let employee of allEmployees ) {
-
     // append table data of each employee into table rows.
     $( '#table1-tbody' ).append(
-
       `<tr id="table1-tbody-tr-${ allEmployees.indexOf( employee ) }">
         <td>${ employee.firstName }</td>
         <td>${ employee.lastName }</td>
@@ -131,39 +99,25 @@ function renderDOMData(){
       </tr>`
     );
   }
-
   // display totalMonthly value in DOM
   $( '#div-total-monthly' ).append( `<h3>Total Monthly $${ totalMonthly }</h3>` );
-
   // add warning class to div-total-monthly if hit warning mark
   costWarning();
 }
 
-
-
 //calculate totalMonthly variable
 function setTotalMonthly( arrEmployees ) {
   console.log( 'in setTotalMonthly' );
-
   let result = 0;
-
   for ( let employee of arrEmployees ) {
     result += Number( employee.annualSalary );
   }
-
   // store value in yearly variable
   let totalYear = result;
-
   // set monthly variable
   result /= 12;
-
-  console.log( 'total Year', totalYear );
-  console.log( 'total Monthly', result );
-
   return result;
 }
-
-
 
 /*
  EVENT HANDLER: When btn-submit is clicked, do the things:
@@ -177,34 +131,16 @@ function setTotalMonthly( arrEmployees ) {
 */
 function submit() {
   console.log( 'in submit' );
-
   // get user inputs into an object
   let userInputs = getUserInputs();
-
   // create an employee object using user inputs
   let emp = createEmployeeObj( userInputs );
-
   // add the Employee object to allEmployees array.
   allEmployees.push( emp );
-
   // calculate totalMonthly variable
   totalMonthly = setTotalMonthly( allEmployees ).toFixed( 2 );
-
-
-
   // refresh DOM
   renderDOMData();
-
   // return emp object
   return emp;
-}
-
-
-
-function test() {
-  console.log( 'in test' );
-
-  let result = 0;
-
-  return result;
 }
