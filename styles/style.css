@@ -20,8 +20,8 @@
   text-align: center;
 }
 
-#h3-employees {
-  margin-right: auto;
+#h3-employees, #h3-total-monthly {
+  text-align: center;
 }
 
 #main-header {
@@ -63,12 +63,12 @@
 /************/
 /*** Tags ***/
 /************/
-/*
+
+/* hide scroll wheels */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
-*/
 
 table, td, th, tr {
   border: 1px solid black;

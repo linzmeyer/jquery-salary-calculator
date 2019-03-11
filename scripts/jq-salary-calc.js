@@ -68,7 +68,7 @@ function getUserInputs() {
 function readyNow() {
   console.log( 'in readyNow' );
   // display totalMonthly value in DOM
-  $( '#div-total-monthly' ).append( `<h3>Total Monthly $${ totalMonthly }</h3>` );
+  $( '#div-total-monthly' ).append( `<h3 id="h3-total-monthly">Total Monthly $${ totalMonthly }</h3>` );
   // listen for click event on btn-submit, run submit handler
   $( '#btn-submit').on( 'click', submit );
 }
@@ -108,7 +108,7 @@ function renderDOMData(){
 
   }
   // display totalMonthly value in DOM
-  $( '#div-total-monthly' ).append( `<h3>Total Monthly $${ totalMonthly }</h3>` );
+  $( '#div-total-monthly' ).append( `<h3 id="h3-total-monthly">Total Monthly $${ totalMonthly }</h3>` );
   // add warning class to div-total-monthly if hit warning mark
   costWarning();
 }
