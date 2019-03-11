@@ -41,16 +41,17 @@
   column-span: "6";
 }
 
-#tfoot {
-  padding: 10px;
-  margin: 10px;
-}
+
 
 /***********/
 /* Classes */
 /***********/
 .input {
   margin: 5px;
+}
+
+.money {
+  text-align: right;
 }
 
 .th {

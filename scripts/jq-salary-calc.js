@@ -16,6 +16,10 @@ class Employee {
 let allEmployees = [];
 // Variable to hold totalMonthly salaries for all Employees
 let totalMonthly = 0;
+// const to hold number of months
+const NUM_OF_MONTHS = 12;
+// const to hold monthly salary limit
+const monthlySalaryLimit = 20000;
 
 /*******************************************************************************
 *** Application Start **********************************************************
@@ -30,7 +34,7 @@ $( document ).ready( readyNow );
 
 function costWarning() {
   console.log( 'in costWarning' );
-  if ( totalMonthly > 20000 ) {
+  if ( totalMonthly > monthlySalaryLimit ) {
     $( '#div-total-monthly' ).addClass( 'warning' );
   }
   else {
@@ -74,7 +78,7 @@ function readyNow() {
 }
 
 function removeEmployee() {
-  console.log('in removeEmployee');
+  console.log( 'in removeEmployee' );
 }
 
 function renderDOMData(){
@@ -85,8 +89,10 @@ function renderDOMData(){
   $( '#in-first-name' ).focus();
   // remove table data elements and Total Monthly tracker.
   $( '#table1-tbody' ).empty();
-  $( '#div-total-monthly' ).empty();
+  $( '#table1-tfoot-tr' ).empty();
   // loop through allEmployees arr
+
+
   for ( let employee of allEmployees ) {
     // store current index in idNum
     let idNum = allEmployees.indexOf( employee );
@@ -97,7 +103,7 @@ function renderDOMData(){
         <td class="">${ employee.lastName }</td>
         <td class="">${ employee.id }</td>
         <td class="">${ employee.title }</td>
-        <td class="">$${ employee.annualSalary }</td>
+        <td class="money">$${ employee.annualSalary }</td>
       </tr>`
     );
     // if the index is odd
@@ -108,7 +114,7 @@ function renderDOMData(){
 
   }
   // display totalMonthly value in DOM
-  $( '#div-total-monthly' ).append( `<h3 id="h3-total-monthly">Total Monthly $${ totalMonthly }</h3>` );
+  $( '#table1-tfoot-tr' ).append( `<td id="div-total-monthly" class="money" colspan="5"><h3 id="h3-total-monthly">Total Monthly $${ totalMonthly }</h3></td>` );
   // add warning class to div-total-monthly if hit warning mark
   costWarning();
 }
@@ -123,7 +129,7 @@ function setTotalMonthly( arrEmployees ) {
   // store value in yearly variable
   let totalYear = result;
   // set monthly variable
-  result /= 12;
+  result /= NUM_OF_MONTHS;
   return result;
 }
 
